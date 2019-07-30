@@ -8,6 +8,7 @@ import com.example.demo4.repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -74,7 +75,7 @@ public class CustomerService {
         Optional<Customer> customerOpt3 = Optional.ofNullable(customerRepo.findByFirstName(firstName));
         if (!customerOpt3.isPresent())
         {
-            return new CustomerResponse("This First Name doesn't exist",firstName,"Error sud sud",0,0);
+            return new CustomerResponse("This First Name doesn't exist",firstName,"Get Error",0,0);
         }
         Customer data = customerRepo.findByFirstName(firstName);
         CustomerResponse customerResponseGetName = new CustomerResponse(data.getiD(),data.getFirstName()
@@ -89,7 +90,7 @@ public class CustomerService {
         Optional<Customer> customerOpt4 = customerRepo.findById(request.getiD());
         if (!customerOpt4.isPresent())
         {
-            return new CustomerResponse(request.getiD(),"This ID doesn't exist",null,0,0);
+            return new CustomerResponse(request.getiD(),"This ID doesn't exist","Update Error",0,0);
         } else {
             Customer item2 = new Customer();
             item2.setiD(request.getiD());
