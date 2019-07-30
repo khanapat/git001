@@ -75,7 +75,7 @@ public class CustomerService {
         Optional<Customer> customerOpt3 = Optional.ofNullable(customerRepo.findByFirstName(firstName));
         if (!customerOpt3.isPresent())
         {
-            return new CustomerResponse("This First Name doesn't exist",firstName,"-",0,0);
+            return new CustomerResponse("This First Name doesn't exist",firstName,"Get Error",0,0);
         }
         Customer data = customerRepo.findByFirstName(firstName);
         CustomerResponse customerResponseGetName = new CustomerResponse(data.getiD(),data.getFirstName()
