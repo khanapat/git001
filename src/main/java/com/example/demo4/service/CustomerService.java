@@ -90,7 +90,7 @@ public class CustomerService {
         Optional<Customer> customerOpt4 = customerRepo.findById(request.getiD());
         if (!customerOpt4.isPresent())
         {
-            return new CustomerResponse(request.getiD(),"This ID doesn't exist",null,0,0);
+            return new CustomerResponse(request.getiD(),"This ID doesn't exist","Error",0,0);
         } else {
             Customer item2 = new Customer();
             item2.setiD(request.getiD());
