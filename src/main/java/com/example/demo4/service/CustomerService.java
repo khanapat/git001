@@ -22,7 +22,7 @@ public class CustomerService {
     public CustomerResponse servicePost(CustomerRequest request) {
         Optional<Customer> customerOpt = customerRepo.findById(request.getiD());
         if (customerOpt.isPresent() == true) {
-            return new CustomerResponse(request.getiD(), "ID already exist", "bobo2 Error", 0, 0);
+            return new CustomerResponse(request.getiD(), "ID already exist", "Post Error", 0, 0);
         } else {
             Customer item = new Customer();
             item.setiD(request.getiD());
@@ -44,7 +44,7 @@ public class CustomerService {
         Optional<Customer> customerOpt2 = customerRepo.findById(iD);
         if (customerOpt2.isPresent() != true)
         {
-            return new CustomerResponse(iD,"ID doesn't exist","noob2 Error",0,0);
+            return new CustomerResponse(iD,"ID doesn't exist","Get Error",0,0);
         } else {
             Customer data = customerRepo.findById(iD).get();
             CustomerResponse customerResponseGetID = new CustomerResponse(data.getiD(),data.getFirstName()
